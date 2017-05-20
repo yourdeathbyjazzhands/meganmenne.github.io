@@ -1,0 +1,910 @@
+@charset "UTF-8";
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	line-height: 1.4;
+	background-color: #FFF;
+	border-top-width: 5px;
+	border-top-style: solid;
+	border-top-color: #a3c346;
+}
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ This fixed width container surrounds all other divs ~~ */
+.container {
+	width: 1024px;
+	background: #FFFFFF; /* the auto value on the sides, coupled with the width, centers the layout */
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+/* ~~ The header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo. ~~ */
+.header {
+	background-color: #ffffff;
+	height: 200px;
+	border-bottom-color: #FFF;
+}
+
+.resumetext{
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	font-weight: 100;
+	color: #999;
+	text-decoration: none;
+}
+
+.abouttext{
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	color: #999;
+	text-decoration: none;
+	font-weight: lighter;
+}
+
+.newstext{
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	color: #999;
+	text-decoration: none;
+	font-weight: 100;
+}
+
+.resumetext:hover{
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	font-weight: 100;
+	color: #a3c346;
+	text-decoration: none;
+	-webkit-transition: color 400ms ease-in; /*safari and chrome */
+	-o-transition: color 400ms ease-in; /* opera */
+	-moz-transition-duration: 400ms;
+	-moz-transition-property: color;
+}
+
+.abouttext:hover{
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	font-weight: 100;
+	color: #a3c346;
+	text-decoration: none;
+	-webkit-transition: color 400ms ease-in; /*safari and chrome */
+	-o-transition: color 400ms ease-in; /* opera */
+	-moz-transition-duration: 400ms;
+	-moz-transition-property: color;
+}
+
+.newstext:hover{
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: #a3c346;
+	-webkit-transition: color 400ms ease-in; /*safari and chrome */
+	-o-transition: color 400ms ease-in; /* opera */
+	-moz-transition-duration: 400ms;
+	-moz-transition-property: color;
+}
+
+.activelink{
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: #a3c346;
+	text-decoration: none;
+	font-size:18px;
+}
+
+.sidebar1 {
+	float: left;
+	width: 40px;
+	padding-bottom: 10px;
+	height: 450px;
+	background-color: #CCC;
+}
+.content {
+	width: 350px;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+}
+.sidebar2 {
+	float: left;
+	width: 634px;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	height: 450px;
+	background-color: #CCC;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+.footer {
+	background-color: #FFF;
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	font-size: x-small;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	bottom: 0px;
+	height: 10px;
+	width: 1024px;
+	background-repeat: no-repeat;
+	background-position: 0px;
+	clear:both;
+	position:static;
+	border-top-color: #CCC;
+}
+
+.footer p{
+	margin-left: -15px;
+}
+
+#social{
+	margin-left: -1px;
+}
+
+.downloadresume{
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	-webkit-transition: color 400ms ease-in; /*safari and chrome */
+ -o-transition: color 400ms ease-in; /* opera */
+	color: #333;-moz-transition-duration: 400ms;
+	-moz-transition-property: color;
+}
+
+.downloadresume:hover{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: #a3c346;
+	text-decoration: none;
+}
+
+
+
+/* ~~ Miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the .container) if the .footer is removed or taken out of the .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+#nav{
+	width: 300px;
+	float: right;
+	margin-top: 148px;
+	height: 25px;
+	margin-left: 20px;
+}
+
+#nav p{
+	font-size:20px;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:100;
+	color: #999;
+	float: left;
+	margin-right: -25px;
+	margin-left: 20px;
+}
+
+.projects{
+	background-color: #FFF;
+	height: 435px;
+	width: 1024px;
+}
+
+#project1{
+	height: 170px;
+	width: 170px;
+	background-color: #fff;
+	clear: left;
+	float: right;
+	margin-top: 120px;
+	-webkit-transition: margin 0.5s ease-out; 
+	-moz-transition: margin 0.5s ease-out; 
+	-o-transition: margin 0.5s ease-out;
+}
+#project2{
+	background-color: #fff;
+	height: 170px;
+	width: 170px;
+	float: right;
+	margin-top: 120px;
+	-webkit-transition: margin 0.5s ease-out; 
+	-moz-transition: margin 0.5s ease-out; 
+	-o-transition: margin 0.5s ease-out;
+}
+#project3{
+	background-color: #fff;
+	height: 170px;
+	width: 170px;
+	clear: left;
+	float: right;
+	margin-top: 120px;
+	-webkit-transition: margin 0.5s ease-out; 
+	-moz-transition: margin 0.5s ease-out; 
+	-o-transition: margin 0.5s ease-out;
+}
+#project4{
+	background-color: #fff;
+	height: 170px;
+	width: 170px;
+	float: right;
+	margin-top: 120px;
+	-webkit-transition: margin 0.5s ease-out; 
+	-moz-transition: margin 0.5s ease-out; 
+	-o-transition: margin 0.5s ease-out;
+}
+#project5{
+	background-color: #fff;
+	height: 170px;
+	width: 170px;
+	float: right;
+	margin-top: 120px;
+	-webkit-transition: margin 0.5s ease-out; 
+	-moz-transition: margin 0.5s ease-out; 
+	-o-transition: margin 0.5s ease-out;
+}
+#project6{
+	background-color: #fff;
+	height: 170px;
+	width: 170px;
+	float: right;
+	margin-top: 120px;
+	-webkit-transition: margin 0.5s ease-out; 
+	-moz-transition: margin 0.5s ease-out; 
+	-o-transition: margin 0.5s ease-out; 
+}
+
+#project1:hover{margin-top: 110px; }
+#project2:hover{margin-top: 110px; }
+#project3:hover{margin-top: 110px; }
+#project4:hover{margin-top: 110px; }
+#project5:hover{margin-top: 110px; }
+#project6:hover{margin-top: 110px; }
+
+#pro1{
+	color:#A8BE6A;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin-left: 6px;
+	line-height: 12px;
+}
+
+#pro2{
+	color:#8AB5CF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin-left: 6px;
+	line-height: 12px;
+}
+
+#pro3{
+	color:#F8616C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin-left: 6px;
+	line-height: 12px;
+}
+
+#pro4{
+	color:#6A95A2;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin-left: 6px;
+	line-height: 12px;
+}
+
+#pro5{
+	color:#FF5983;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin-left: 6px;
+	line-height: 12px;
+}
+
+#pro6{
+	color:#83BF21;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin-left: 6px;
+	line-height: 15px;
+}
+
+#pro1text{
+	margin-top: -5px;
+}
+
+#pro2text{
+	margin-top: -5px;
+}
+
+#pro3text{
+	margin-top: -5px;
+}
+
+#pro4text{
+	margin-top: -5px;
+}
+
+#pro5text{
+	margin-top: -5px;
+}
+
+#pro6text{
+	margin-top: -5px;
+}
+
+#institutionaldesign1title{}
+
+#Institutionaldesign1{
+	margin-bottom: 25px;
+}
+
+#projectheader{
+	margin-top: 50px;
+	height: 120px;
+}
+
+#green{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #83BF21;
+	font-size: 24px;
+}
+
+#pink{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #f47c97;
+	font-size: 24px;
+}
+
+#blue{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #87a5b0;
+	font-size: 24px;
+}
+
+#pink2{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #e87f83;
+	font-size: 24px;
+}
+
+#blue2{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #a3c2d6;
+	font-size: 24px;
+}
+
+#green2{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #bcc584;
+	font-size: 24px;
+}
+
+#lightgray{
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: lighter;
+	color: #CCC;
+}
+
+#lightgraysubtitle{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #CCC;
+	font-style: italic;
+	line-height: 0px;
+	margin-top: -10px;
+}
+
+#photogallery{
+}
+
+
+/*project 1 boxes*/
+#work1a{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work11.jpg);
+
+}
+#work1b{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: right;
+	margin-top: -213px;
+	margin-right: 343px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work12.jpg);
+
+}
+#work1c{
+	float: right;
+	height: 211px;
+	background-color: #CCC;
+	width: 335px;
+	margin-left: 688px;
+	margin-top: -213px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work13.jpg);
+
+}
+
+#work1d{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+
+	background-image: url(../images/work14.jpg);
+}
+#work1e{
+background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-left: 7px;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work15.jpg);
+
+}
+#work1f{
+	float: right;
+	height: 211px;
+	background-color: #CCC;
+	width: 335px;
+	margin-left: 7px;
+	margin-top: -213px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work16.jpg);
+
+}
+
+#work1g{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work17.jpg);
+
+}
+#work1h{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-left: 7px;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work18.jpg);
+
+}
+#work1i{
+	float: right;
+	height: 211px;
+	background-color: #fff;
+	width: 335px;
+	margin-left: 7px;
+	margin-top: -213px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work19.jpg);
+
+}
+
+#work1j{
+	background-color: #fff;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+	margin-bottom: 50px;
+		background-image: url(../images/work111.jpg);
+
+}
+#work1k{
+	background-color: #fff;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-left: 7px;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work112.jpg);
+
+}
+#work1l{
+	float: right;
+	height: 211px;
+	background-color: #fff;
+	width: 335px;
+	margin-left: 7px;
+	margin-top: -213px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+		background-image: url(../images/work113.jpg);
+
+}
+
+/*project 2 boxes*/
+#work2a{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	background-image: url(../images/work21.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work2b{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	float: right;
+	margin-top: -213px;
+	margin-right: 343px;
+	background-image: url(../images/work22.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work2c{
+float: right;
+	height: 211px;
+	background-color: #ccc;
+	width: 335px;
+	margin-left: 688px;
+	margin-top: -213px;
+	background-image: url(../images/work23.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+#work2d{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	margin-bottom: 50px;
+	background-image: url(../images/work24.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work2e{
+background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-left: 7px;
+	margin-top: 7px;
+	background-image: url(../images/work25.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work2f{
+	float: right;
+	height: 211px;
+	background-color: #ccc;
+	width: 335px;
+	margin-left: 7px;
+	margin-top: -213px;
+	background-image: url(../images/work26.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+/*project3boxs*/
+#work3a{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	background-image: url(../images/work31.jpg);
+	border: 1px solid #CCC;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work3b{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	float: right;
+	margin-top: -213px;
+	margin-right: 343px;
+	background-image: url(../images/work32.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work3c{
+	float: right;
+	height: 211px;
+	background-color: #CCC;
+	width: 335px;
+	margin-left: 688px;
+	margin-top: -213px;
+	background-image: url(../images/work33.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+#work3d{
+background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	margin-bottom: 50px;
+	background-image: url(../images/work34.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+/*project 4 boxes */
+#work4a{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	background-image: url(../images/work41.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work4b{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: right;
+	margin-top: -213px;
+	margin-right: 343px;
+	background-image: url(../images/work42.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work4c{
+	float: right;
+	height: 211px;
+	background-color: #fff;
+	width: 335px;
+	margin-left: 688px;
+	margin-top: -213px;
+	background-image: url(../images/work43.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+#work4d{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	margin-bottom: 50px;
+	background-image: url(../images/work44.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work4e{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-left: 7px;
+	margin-top: 7px;
+	background-image: url(../images/work45.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work4f{
+	float: right;
+	height: 211px;
+	background-color: #CCC;
+	width: 335px;
+	margin-left: 7px;
+	margin-top: -213px;
+	background-image: url(../images/work46.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work4g{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+	background-image: url(../images/work47.jpg);
+	margin-left: -337px;
+}
+#work4h{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+	background-image: url(../images/work48.jpg);
+	margin-left: 7px;
+}
+/*project 5 boxes*/
+#work5a{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	background-image: url(../images/work51.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work5b{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: right;
+	margin-top: -213px;
+	margin-right: 343px;
+	background-image: url(../images/work52.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work5c{
+	float: right;
+	height: 211px;
+	background-color: #CCC;
+	width: 335px;
+	margin-left: 688px;
+	margin-top: -213px;
+	background-image: url(../images/work53.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+#work5d{
+background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: left;
+	margin-top: 7px;
+	margin-bottom: 50px;
+	background-image: url(../images/work54.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+/*project 6 boxes */
+#work6a{
+	background-color: #ccc;
+	height: 211px;
+	width: 335px;
+	background-image: url(../images/work61.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+#work6b{
+	background-color: #CCC;
+	height: 211px;
+	width: 335px;
+	float: right;
+	margin-top: -213px;
+	margin-right: 343px;
+	background-image: url(../images/work62.jpg);
+	border: 1px solid #CCC;
+	background-repeat: no-repeat;
+}
+
+
+
+/*about page css*/
+#about{
+	margin-top: 30px;
+	height: 500px;
+}
+
+#news{
+	margin-top: 30px;
+	height: 870px;
+}
+
+#meggybaby{
+	background-color: #ffffff;
+	float: right;
+	height: 250px;
+	width: 250px;
+	margin-right: 150px;
+	background-image: url(../images/megan.jpg);
+	margin-top: 40px;
+	box-shadow: 0 0 3px 0 #777777;
+	border: 1px solid #CCC;
+}
+
+#aboutsection{
+	width: 600px;
+}
+
+#greenabout{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #83BF21;
+	font-size: 24px;}
+
+#greyname{
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: lighter;
+	color: #CCC;}
+	
+#greydate{
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	font-weight: lighter;
+	color: #CCC;
+}
+	
+#abouttext{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #999;
+
+
+}
